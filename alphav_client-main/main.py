@@ -15,25 +15,25 @@ class StockTimeSeries:
     def _build_url(self, path):
         return f"{self.base_url}?{path}&apikey={self.api_key}"
 
-    # Paremetro obrigatorio
+    
     def function(self, function):
         return f"function={function}"
 
-    # Paremetro obrigatorio
+    
     def symbol(self, symbol):
         return f"symbol={symbol}"
 
-    # Paremetro obrigatorio
+    
     def interval(self, interval):
         return f"interval={interval}"
 
     def slice(self, slice):
         return f'slice={slice}'
 
-    # ecebe o dicionario e adiciona ao Path
+    
 
     def intraday_series(self, function, symbol, interval, **kwargs):
-        # Cria a URL
+       
         path = f"{self.function(function)}&{self.symbol(symbol)}&{self.interval(interval)}"
         options = [f"{item[0]}={item[1]}" for item in kwargs.items()]
         path = f"{path}&{'&'.join(options)}" if options else path
